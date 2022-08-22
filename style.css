@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --error-color: #d81b60;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Space Mono', monospace;
+    background-color: var(--Light-grayish-cyan);
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    background-color: var(--White);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.data-entry,
+.total {
+    width: 50%;
+}
+
+/* Remove Arrow From Number Input*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.data-entry label {
+    display: block;
+    color: var(--Grayish-cyan);
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.data-entry .billInput,
+.data-entry .tip-category {
+    margin-bottom: 20px;
+}
+
+.data-entry .billInput,
+.data-entry .peopleInput {
+    display: block;
+    position: relative;
+}
+
+.data-entry .billInput::before,
+.data-entry .peopleInput::before {
+    content: url(./images/icon-dollar.svg);
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.data-entry .billInput input,
+.data-entry .peopleInput input {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--Very-light-grayish-cyan);
+    color: var(--Very-dark-cyan);
+    text-align: right;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.data-entry .billInput input::placeholder,
+.data-entry .peopleInput input::placeholder {
+    color: var(--Grayish-cyan);
+    font-size: 18px;
+}
+
+.data-entry .billInput input:focus,
+.data-entry .peopleInput input:focus {
+    border: 2px solid var(--Strong-cyan);
+}
+
+.data-entry .people-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-entry .people-error p {
+    color: var(--error-color);
+    font-size: 14px;
+    text-transform: capitalize;
+    display: none;
+}
+
+.data-entry .tip-category > p {
+    color: var(--Grayish-cyan);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.data-entry .tip-category .tip-num {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.data-entry .tip-category .tip-num button {
+    width: calc((100% - 20px) / 3);
+    padding: 10px 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--Very-dark-cyan);
+    color: var(--White);
+    font-weight: 600;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: .3s all;
+}
+
+.data-entry .tip-category .tip-num button:hover {
+    background-color: var(--Strong-cyan);
+}
+
+.data-entry .tip-category .tip-num .customInput {
+    width: calc((100% - 20px) / 3);
+}
+
+.data-entry .tip-category .tip-num .customInput input {
+    max-width: 100%;
+    background-color: var(--Very-light-grayish-cyan);
+    text-align: center;
+    color: var(--Very-dark-cyan);
+    padding: 10px 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 20px
+}
+
+.data-entry .tip-category .tip-num .customInput input:focus {
+    border: 2px solid var(--Strong-cyan);
+}
+
+.data-entry .tip-category .tip-num .customInput input::placeholder {
+    color: var(--Grayish-cyan);
+    font-size: 18px;
+}
+
+.total {
+    background-color: var(--Very-dark-cyan);
+    padding: 20px 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.total .tip-amount,
+.total .total-to-pay {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total .tip-amount span:first-of-type,
+.total .total-to-pay span:first-of-type{
+    position: relative;
+    color: var(--White);
+    text-transform: capitalize;
+}
+
+.total .tip-amount span:first-of-type::before,
+.total .total-to-pay span:first-of-type::before {
+    position: absolute;
+    content: "/ person";
+    left: 0;
+    bottom: -15px;
+    font-size: 12px;
+    color: var(--Grayish-cyan);
+    text-transform: lowercase;
+    width: 120%;
+}
+
+.total .tip-amount span:nth-child(2),
+.total .total-to-pay span:nth-child(2){
+    font-size: 35px;
+    color: var(--Strong-cyan);
+}
+
+.total button {
+    display: block;
+    width: 80%;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #0d686d;
+    color: var(--Dark-grayish-cyan);
+    padding: 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: .4s all;
+    -webkit-transition: .4s all;
+    -moz-transition: .4s all;
+    -ms-transition: .4s all;
+    -o-transition: .4s all;
+}
+
+.total button:hover {
+    background-color: var(--Strong-cyan);
+    color: var(--Very-dark-cyan);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 768px) {
+    img[alt="logo"] {
+        margin-bottom: 20px;
+    }
+
+    body {
+        height: auto;
+        padding-block: 30px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .data-entry .tip-category .tip-num button,
+    .data-entry .tip-category .tip-num .customInput {
+        width: calc((100% - 20px) / 2);
+    }
+
+    .data-entry, .total {
+        width: 100%;
+    }
+
+    .total button {
+        width: 100%;
+        position: initial;
+        transform: translateX(0);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
